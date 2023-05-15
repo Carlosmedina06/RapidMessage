@@ -1,8 +1,10 @@
 'use client'
-
+import axios from 'axios'
 import { useCallback, useState } from 'react'
-import { FieldValues, useForm } from 'react-hook-form'
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { BsGithub, BsGoogle } from 'react-icons/bs'
+import { toast } from 'react-hot-toast'
+import { signIn } from 'next-auth/react'
 
 import Input from '@/app/components/inputs/Input'
 import Button from '@/app/components/Button'
@@ -18,8 +20,9 @@ const AuthForm = () => {
   const toggleVariant = useCallback(() => {
     if (variant === 'LOGIN') {
       setVariant('REGISTER')
+    } else {
+      setVariant('LOGIN')
     }
-    setVariant('LOGIN')
   }, [variant])
 
   const {
@@ -34,18 +37,50 @@ const AuthForm = () => {
     },
   })
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true)
 
     if (variant === 'REGISTER') {
+      axios
+        .post('/api/register', data)
+        .catch(() => toast.error('Something went wrong.'))
+        .finally(() => setIsLoading(false))
     }
 
     if (variant === 'LOGIN') {
+      signIn('credentials', {
+        ...data,
+        redirect: false,
+      })
+        .then((callback) => {
+          if (callback?.error) {
+            toast.error('Invalid credentials.')
+          }
+
+          if (callback?.ok && !callback?.error) {
+            toast.success('Successfully logged in.')
+          }
+        })
+        .finally(() => setIsLoading(false))
     }
   }
 
   const socialAction = (action: string) => {
     setIsLoading(true)
+
+    signIn(action, {
+      redirect: false,
+    })
+      .then((callback) => {
+        if (callback?.error) {
+          toast.error('Something went wrong.')
+        }
+
+        if (callback?.ok && !callback?.error) {
+          toast.success('Successfully logged in.')
+        }
+      })
+      .finally(() => setIsLoading(false))
   }
 
   return (
