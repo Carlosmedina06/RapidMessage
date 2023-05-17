@@ -77,12 +77,12 @@ RapidMessage allows users to register, log in, and start messaging with other us
 
 Contributions are welcome! If you'd like to contribute to RapidMessage, please follow these steps:
 
-Fork the repository.
-Create a new branch for your feature or bug fix.
-Make your changes and commit them with descriptive messages.
-Push your changes to your forked repository.
-Submit a pull request to the main repository.
-Please ensure your code follows the project's coding style and includes appropriate tests.
+- Fork the repository.
+- Create a new branch for your feature or bug fix.
+- Make your changes and commit them with descriptive messages.
+- Push your changes to your forked repository.
+- Submit a pull request to the main repository.
+- Please ensure your code follows the project's coding style and includes appropriate tests.
 
 
 ## Autor
