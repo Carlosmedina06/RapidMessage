@@ -79,7 +79,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({ isOpen, onClose, data }) 
                         <div className="flex items-start justify-end">
                           <div className="ml-3 flex h-7 items-center">
                             <button
-                              className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                              className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                               type="button"
                               onClick={onClose}
                             >
@@ -106,7 +106,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({ isOpen, onClose, data }) 
                               onClick={() => setConfirmOpen(true)}
                             >
                               <div className="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center">
-                                <IoTrash size={20} />
+                                <IoTrash className=" text-teal-500 font-bold " size={20} />
                               </div>
                               <div className="text-sm font-light text-neutral-600">Delete</div>
                             </div>
