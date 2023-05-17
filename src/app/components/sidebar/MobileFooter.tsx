@@ -13,13 +13,13 @@ const MobileFooter = () => {
 
   return (
     <div className="fixed justify-between w-full bottom-0 z-40 flex items-center bg-white border-t-[1px] lg:hidden">
-      {routes.map((item) => (
+      {routes.map((route) => (
         <MobileItem
-          key={item.label}
-          active={item.active}
-          href={item.href}
-          icon={item.icon}
-          onClick={item.onClick}
+          key={route.href}
+          active={route.active}
+          href={route.href}
+          icon={route.icon}
+          onClick={route.onClick}
         />
       ))}
     </div>
