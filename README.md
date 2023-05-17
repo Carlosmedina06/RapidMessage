@@ -2,6 +2,9 @@
 
 RapidMessage is a powerful messaging application built with Next.js, Prisma, MongoDB, Zustand, Next-Auth, TypeScript, TailwindCSS, Pusher, React-Hook-Form, and Cloudinary. It provides users with a seamless messaging experience and offers a range of features to enhance communication.
 
+## Demo
+https://github.com/Carlosmedina06/RapidMessage/assets/101008770/1a25c583-2891-4d9f-a9ab-60a279bb9a3d
+
 ## Features
 
 - User registration and authentication with Next-Auth
