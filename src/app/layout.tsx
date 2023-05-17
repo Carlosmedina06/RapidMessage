@@ -1,15 +1,14 @@
 import { Inter } from 'next/font/google'
 
-import ToasterContext from './context/ToasterContext'
 import AuthContext from './context/AuthContext'
-
+import ActiveStatus from './components/ActiveStatus'
+import ToasterContext from './context/ToasterContext'
 import './globals.css'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'RapidMessage - Fast messaging app',
-  description: 'RapidMessage is a simple and fast messaging app.',
+  title: 'RappidMessage',
+  description: 'A simple chat app built with Next.js, TypeScript, and Tailwind CSS.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <AuthContext>
           <ToasterContext />
+          <ActiveStatus />
           {children}
         </AuthContext>
       </body>
